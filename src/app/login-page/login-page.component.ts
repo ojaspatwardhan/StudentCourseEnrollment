@@ -23,7 +23,7 @@ export class LoginPageComponent implements OnInit {
   login(username, password) {
     if(username != undefined && password != undefined) {
       this.service.login(username, password).then((user) => {
-        if(user.length != 0) {
+        if(user != null || user.length != 0) {
           this.router.navigate(['profile']);
         }
         else {
