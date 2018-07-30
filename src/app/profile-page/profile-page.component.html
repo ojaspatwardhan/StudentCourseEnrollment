@@ -1,0 +1,54 @@
+<div class="container-fluid" style="margin-top: 10%;">
+  <div class="row">
+    <div class="col-md-6" style="margin-left: 5%;">
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>Username</mat-label>
+          <input [(ngModel)]="user.username" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>First Name</mat-label>
+          <input [(ngModel)]="user.firstName" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>Last Name</mat-label>
+          <input [(ngModel)]="user.lastName" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>Email</mat-label>
+          <input [(ngModel)]="user.email" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="col-md-12" appearance="outline" color="primary">
+          <mat-label>Address</mat-label>
+          <input [(ngModel)]="user.address" matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <button mat-raised-button color="accent" class="col-md-12" (click) = "updateUser(user)">Update</button>
+      </div>
+      <div class="row">
+        <button mat-raised-button color="primary" class="col-md-12" (click) = "logout()" style="margin-top: 2%;">Logout</button>
+      </div>
+      <div class="row">
+        <button mat-raised-button routerLink="/home" class="col-md-12" style="margin-top: 2%;">Home</button>
+      </div>
+    </div>
+    <div class="col-md-4" style="margin-left: 2%;">
+      <ul>
+        <li *ngFor = "let enrollment of sections">
+          <h6>{{enrollment.section.name}}</h6>
+          <a routerLink="/course/{{enrollment.section.courseId}}/section" class="btn btn-sm btn-outline-info" style="margin-left: 3%;">Course Sections</a>
+          <button type="button" (click) = "unenroll(enrollment.section._id)" class="btn btn-sm btn-outline-danger" style="margin-left: 1%;">Unenroll</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="container-fluid" style="margin-left: 35%; margin-top: 15%;">
+  <div class="row">
+    <mat-form-field hintLabel="Max 10 characters" class="col-md-4" appearance="outline" color="primary">
+      <mat-label>Username</mat-label>
+      <input id="username" [(ngModel)] = "username" matInput #input maxlength="10" placeholder="Enter Username" />
+      <mat-hint align="end">{{input.value ? input.value.length : 0}}/10</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field hintLabel="Must contain uppercase, lowercase, and special character" class="col-md-4" appearance="outline" color="primary">
+      <mat-label>Password</mat-label>
+      <input id="password" [(ngModel)] = "password" matInput #passwd maxlength="8" placeholder="Enter Password" />
+      <mat-hint align="end">{{passwd.value ? passwd.value.length : 0}}/8</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="row" style="margin-top: 1%;">
+    <button class="col-md-1" (click) = "login(username, password)" mat-raised-button color="primary" style="left: 1%;">Login</button>
+    <button class="col-md-1" mat-raised-button color="warn" style="margin-left: 2%;">Cancel</button>
+  </div>
+  <div class="row" style="margin-top: 1%;">
+    <div class="col-md-4 alert alert-danger" style="display: none;" id="errorMessage">
+      <h6>{{errorMessage}}</h6>
+    </div>
+  </div>
+</div>

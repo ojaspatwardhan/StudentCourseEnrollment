@@ -1,0 +1,73 @@
+<div class="alert alert-info" role="alert">
+  <h3>Widget</h3>
+</div>
+<div *ngFor="let widget of widgets">
+  <div [ngSwitch]="widget.widgetType">
+
+    <div *ngSwitchCase="'Heading'" class="container-fluid WidgetContainer">
+      <h1 class="form-control">Heading Widget</h1>
+      <div class="form-control widgetPadding" [ngSwitch]="widget.size">
+        <h1 *ngSwitchCase="'1'">{{widget.text}}</h1>
+        <h2 *ngSwitchCase="'2'">{{widget.text}}</h2>
+        <h3 *ngSwitchCase="'3'">{{widget.text}}</h3>
+        <h4 *ngSwitchCase="'4'">{{widget.text}}</h4>
+        <h5 *ngSwitchCase="'5'">{{widget.text}}</h5>
+        <h6 *ngSwitchCase="'6'">{{widget.text}}</h6>
+      </div>
+    </div>
+
+    <div *ngSwitchCase="'Paragraph'" class="container-fluid">
+      <h1 class="form-control">Paragraph Widget</h1>
+      <p class="form-control">{{widget.text}}"</p>
+    </div>
+
+    <div *ngSwitchCase="'Image'" class="container-fluid">
+      <h1 class="form-control">Image Widget</h1>
+      <div class="form-control widgetPadding">
+        <img src="{{widget.text}}" height="139px" width="159px"/>
+      </div>
+
+    </div>
+
+    <div *ngSwitchCase="'Link'" class="container-fluid">
+      <h1 class="form-control">Link Widget</h1>
+      <div class="form-control widgetPadding">
+        <a href="{{widget.href}}">{{widget.text}}</a>
+      </div>
+    </div>
+
+
+    <div *ngSwitchCase="'List'" class="container-fluid">
+      <h1 class="form-control">List Widget</h1>
+
+
+        <div class="form-control widgetPadding" [ngSwitch]="widget.listType">
+
+          <div *ngSwitchCase="'2'" >
+            <ol>
+              <li *ngFor="let item of widget.text.split('\n')">
+                {{item}}
+              </li>
+            </ol>
+          </div>
+          <div *ngSwitchCase="'1'" >
+            <ul>
+              <li *ngFor="let item of widget.text.split('\n')">
+                {{item}}
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+    </div>
+
+
+    <div *ngSwitchCase="'Exam'" class="container-fluid">
+      <h1>Exam Widget</h1>
+    </div>
+  </div>
+  <div style="height: 15px">
+
+  </div>
+</div>

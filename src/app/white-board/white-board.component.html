@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <h5>Enrolled courses ({{courses.length}})</h5>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 1%;">
+    <div *ngFor = "let course of courses" class="col-3">
+      <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{course.title}}</h5>
+            <p class="card-text">{{course.created}}</p>
+            <p class="card-text">
+              {{course.modified}}
+            </p>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <app-course-grid></app-course-grid>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 2%; margin-left: 2%;">
+    <div class="col-md-1">
+      <button type="button" class="btn btn-md btn-outline-primary" routerLink="/register">Register</button>
+    </div>
+    <div class="col-md-3">
+      <small><b>Already have an account?</b></small>
+      &nbsp;
+      <button type="button" class="btn btn-md btn-outline-secondary" routerLink="/login">Login</button>
+    </div>
+  </div>
+</div>

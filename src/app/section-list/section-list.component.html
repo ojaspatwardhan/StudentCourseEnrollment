@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <h1>Sections for course: {{course.id}}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2" *ngFor = "let section of sections">
+      <b>{{section.name}}</b>
+      <button type="button" style="margin-left: 5%;" class="btn btn-md btn-outline-success" (click) = "enrollStudentInSection(section._id)">Enroll</button>
+    </div>
+  </div>
+</div>

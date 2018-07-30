@@ -1,0 +1,14 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <ul class="list-group">
+        <li [ngClass]="{'active' : module.id == moduleId}" *ngFor="let module of modules" class="list-group-item">
+          <a routerLink="/course/{{courseId}}/module/{{module.id}}" style="text-decoration: none; color: black">{{module.title}}</a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <app-lesson-tabs></app-lesson-tabs>
+    </div>
+  </div>
+</div>

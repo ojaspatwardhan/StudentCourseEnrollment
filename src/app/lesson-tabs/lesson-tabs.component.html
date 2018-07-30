@@ -1,0 +1,5 @@
+<ul class="nav nav-pills">
+  <li *ngFor="let lesson of lessons" class="nav-item">
+    <a [ngClass]="{'active' : lesson.id == lessonId}" class="nav-link" routerLink="/widget/{{lesson.id}}">{{lesson.title}}</a>
+  </li>
+</ul>
