@@ -24,7 +24,9 @@
       <button class="col-md-1" (click) = "onRegister(username, password, confirmPassword)" mat-raised-button color="primary" style="left: 1%;">Register</button>
       <button class="col-md-1" mat-raised-button color="warn" style="margin-left: 2%;">Cancel</button>
     </div>
-    <div>
-      <h6>{{errorMessage}}</h6>
+    <div class="row" style="margin-top: 1%;">
+      <div id="errorMessage" class="col-md-4 alert alert-danger" style="display: none;">
+        <h6>{{errorMessage}}</h6>
+      </div>
     </div>
   </div>
