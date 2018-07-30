@@ -9,14 +9,14 @@
     <div class="row">
       <mat-form-field hintLabel="Must contain uppercase, lowercase, and special character" class="col-md-4" appearance="outline" color="primary">
         <mat-label>Password</mat-label>
-        <input [(ngModel)] = "password" matInput #passwd maxlength="8" placeholder="Enter Password" />
+        <input type="password" [(ngModel)] = "password" matInput #passwd maxlength="8" placeholder="Enter Password" />
         <mat-hint align="end">{{passwd.value ? passwd.value.length : 0}}/8</mat-hint>
       </mat-form-field>
     </div>
     <div class="row">
       <mat-form-field hintLabel="Must contain uppercase, lowercase, and special character" class="col-md-4" appearance="outline" color="primary">
         <mat-label>Confirm Password</mat-label>
-        <input [(ngModel)] = "confirmPassword" matInput #confirmpasswd maxlength="8" placeholder="Confirm Password" />
+        <input type="password" [(ngModel)] = "confirmPassword" matInput #confirmpasswd maxlength="8" placeholder="Confirm Password" />
         <mat-hint align="end">{{confirmpasswd.value ? confirmpasswd.value.length : 0}}/8</mat-hint>
       </mat-form-field>
     </div>
