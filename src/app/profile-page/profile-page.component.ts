@@ -25,7 +25,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   logout() {
-    cookieService.delete("username");
+    this.cookieService.delete("username");
     this.service.logout().then(() => this.router.navigate(['home']));
   }
 
