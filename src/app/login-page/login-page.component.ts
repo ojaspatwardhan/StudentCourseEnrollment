@@ -28,6 +28,7 @@ export class LoginPageComponent implements OnInit {
         if(user != null) {
           this.cookieService.set("username", username);
           this.cookieValue = this.cookieService.get("username");
+          console.log(this.cookieValue)
           this.router.navigate(['profile']);
         }
         else {

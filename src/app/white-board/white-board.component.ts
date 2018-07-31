@@ -17,6 +17,7 @@ export class WhiteBoardComponent implements OnInit {
 
   ngOnInit() {
     this.cookieValue = this.cookieService.get("username");
+    console.log(this.cookieValue);
     this.service.findSectionsForStudent().then(enrollments => {
       if(enrollments.length != 0) {
         enrollments.map((enrollment) => {
