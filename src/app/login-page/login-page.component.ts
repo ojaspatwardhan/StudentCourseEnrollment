@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserServiceClient } from '../services/user.service.client';
+import { CookieService } from 'ngx-cookie-service';
 declare var jquery:any;
 declare var $:any;
 
@@ -11,11 +12,12 @@ declare var $:any;
 })
 export class LoginPageComponent implements OnInit {
 
-  constructor(private router: Router, private service: UserServiceClient) { }
+  constructor(private router: Router, private service: UserServiceClient, private cookieService: CookieService) { }
 
   username;
   password;
   errorMessage;
+  cookieValue = "";
 
   ngOnInit() {
   }
@@ -24,6 +26,8 @@ export class LoginPageComponent implements OnInit {
     if(username != undefined && password != undefined) {
       this.service.login(username, password).then((user) => {
         if(user != null) {
+          this.cookieService.set("username", username);
+          this.cookieValue = this.cookieService.get("username");
           this.router.navigate(['profile']);
         }
         else {

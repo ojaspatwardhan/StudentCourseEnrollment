@@ -23,7 +23,7 @@
       <app-course-grid></app-course-grid>
     </div>
   </div>
-  <div class="row" style="margin-top: 2%; margin-left: 2%;">
+  <div class="row" style="margin-top: 2%; margin-left: 2%;" *ngIf = "{cookieValue} == ''; else loggedIn">
     <div class="col-md-1">
       <button type="button" class="btn btn-md btn-outline-primary" routerLink="/register">Register</button>
     </div>
@@ -33,4 +33,14 @@
       <button type="button" class="btn btn-md btn-outline-secondary" routerLink="/login">Login</button>
     </div>
   </div>
+  <ng-template #loggedIn>
+    <div class="row" style="margin-top: 2%; margin-left: 2%;">
+      <div class="col-md-1">
+        <button type="button" class="btn btn-md btn-outline-primary" routerLink="/register">Logout</button>
+      </div>
+      <div class="col-md-3">
+        <button type="button" class="btn btn-md btn-outline-secondary" routerLink="/login">Profile</button>
+      </div>
+    </div>
+  </ng-template>
 </div>

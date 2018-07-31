@@ -15,6 +15,7 @@ import { LessonServiceClient } from './services/lesson.service.client';
 import { UserServiceClient } from './services/user.service.client';
 import { SectionServiceClient } from './services/section.service.client';
 import { WidgetServiceClient } from './services/widget.service.client';
+import { CookieService } from 'ngx-cookie-service';
 import { routing } from './app.routing';
 import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 import { ModuleListComponent } from './module-list/module-list.component';
@@ -63,7 +64,8 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
     LessonServiceClient,
     UserServiceClient,
     SectionServiceClient,
-    WidgetServiceClient
+    WidgetServiceClient,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
