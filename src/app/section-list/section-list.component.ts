@@ -28,7 +28,7 @@ export class SectionListComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => this.courseId = params["courseId"]);
     this.service.findSectionsForCourse(this.courseId)
-    .then(sections => this.sections = sections).then(() => window.location.reload());
+    .then(sections => this.sections = sections);
   }
 
 }
