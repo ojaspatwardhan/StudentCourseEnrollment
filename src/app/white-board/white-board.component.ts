@@ -35,7 +35,7 @@ export class WhiteBoardComponent implements OnInit {
 
   logout() {
     this.cookieService.delete("username");
-    this.service.logout().then(() => this.router.navigate(['home']));
+    this.userService.logout().then(() => this.router.navigate(['home']));
   }
 
 }
