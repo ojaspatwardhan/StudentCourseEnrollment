@@ -10,7 +10,7 @@
           <div class="card-body">
             <h5 class="card-title">{{course.title}}</h5>
             <span class="badge badge-secondary">{{course.type}}</span>
-            <p class="card-text">Created - {{course.created}}</p>
+            <p class="card-text"><b>Created - {{course.created}}</b></p>
             <p class="card-text">Created - {{course.created}}</p>
             <a routerLink="/course/{{course.id}}" class="btn btn-md btn-outline-primary" *ngIf = "course.type == 'public'">Go to Course</a>
             <a routerLink="/course/{{course.id}}/section" class="btn btn-md btn-outline-info" style="margin-left: 3%;">Enroll</a>
