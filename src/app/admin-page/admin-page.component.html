@@ -30,7 +30,7 @@
                   <button type="button" (click) = "findSectionsForCourse(course.id)" class="btn btn-md btn-outline-secondary" data-toggle="modal" data-target="#exampleModal" style="margin-top: 13%; margin-left: 40%;">Update/ Show sections</button>
                 </div>
                 <div class="col-md-3">
-                  <button type="button" (click) = "findSectionsForCourse(course.id)" class="btn btn-md btn-outline-secondary" data-toggle="modal" data-target="#enrollmentModal" style="margin-top: 13%; margin-left: 40%;">Show Enrollments</button>
+                  <button type="button" (click) = "findSectionsForCourse(course.id)" class="btn btn-md btn-outline-dark" data-toggle="modal" data-target="#enrollmentModal" style="margin-top: 13%; margin-left: 40%;">Show Enrollments</button>
                 </div>
             </div>
           </div>
@@ -86,6 +86,9 @@
           <div class="row" *ngFor = "let section of sections" style="margin-top: 2%;">
             <div class="col-md-3">
               <span><b>Name - {{section.name}}</b></span>
+            </div>
+            <div *ngFor = "let enrollment of enrollments">
+              {{enrollment.student.firstName}}&nbsp;
             </div>
           </div>
         </div>

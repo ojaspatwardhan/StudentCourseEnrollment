@@ -1,4 +1,6 @@
 export class SectionServiceClient {
+  heroku_url = "https://student-enrollment-backend.herokuapp.com";
+  local_url = "http://localhost:4000";
   SECTION_URL = "http://localhost:4000/api/course/id/section";
   createSection(courseId, name, seats) {
     const section = {
@@ -6,7 +8,7 @@ export class SectionServiceClient {
       name: name,
       seats: seats
     };
-    return fetch("http://localhost:4000/api/course/" + courseId + "/section", {
+    return fetch("https://student-enrollment-backend.herokuapp.com/api/course/" + courseId + "/section", {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -17,13 +19,13 @@ export class SectionServiceClient {
   }
 
   findSectionsForCourse(courseId) {
-    return fetch("http://localhost:4000/api/course/" + courseId + "/section")
+    return fetch("https://student-enrollment-backend.herokuapp.com/api/course/" + courseId + "/section")
     .then(response => response.json());
   }
 
   deleteSection(sectionId) {
     console.log(sectionId);
-    return fetch("http://localhost:4000/api/section/" + sectionId, {
+    return fetch("https://student-enrollment-backend.herokuapp.com/api/section/" + sectionId, {
       method: "DELETE"
     });
   }
@@ -34,7 +36,7 @@ export class SectionServiceClient {
       name: name,
       seats: seats
     };
-    return fetch("http://localhost:4000/api/section/" + sectionId, {
+    return fetch("https://student-enrollment-backend.herokuapp.com/api/section/" + sectionId, {
       method: "PUT",
       body: JSON.stringify(section),
       headers: {
@@ -45,20 +47,20 @@ export class SectionServiceClient {
   }
 
   findSectionById(sectionId) {
-    return fetch("http://localhost:4000/api/section/" + sectionId)
+    return fetch("https://student-enrollment-backend.herokuapp.com/api/section/" + sectionId)
     .then(response => response.json());
   }
 
   enrollStudentInSection(sectionId) {
     console.log(sectionId);
-    return fetch("http://localhost:4000/api/student/"+ sectionId +"/section", {
+    return fetch("https://student-enrollment-backend.herokuapp.com/api/student/"+ sectionId +"/section", {
       method: "POST",
       credentials: 'include', // include, same-origin, *omit
     });
   }
 
   unenrollStudentInSection(sectionId) {
-    return fetch("http://localhost:4000/api/student/"+ sectionId + "/section", {
+    return fetch("https://student-enrollment-backend.herokuapp.com/api/student/"+ sectionId + "/section", {
       method: "DELETE",
       credentials: 'include', // include, same-origin, *omit
     })
@@ -66,7 +68,7 @@ export class SectionServiceClient {
   }
 
   findSectionsForStudent() {
-    return fetch('http://localhost:4000/api/student/section', {
+    return fetch('https://student-enrollment-backend.herokuapp.com/api/student/section', {
         method: "GET",
         credentials: 'include', // include, same-origin, *omit
       })
@@ -74,6 +76,7 @@ export class SectionServiceClient {
   }
 
   findEnrollmentForSection(sectionId) {
-    console.log(sectionId);
+    return fetch("https://student-enrollment-backend.herokuapp.com/api/student/" + sectionId + "/findEnrollment")
+    .then(response => response.json());
   }
 }

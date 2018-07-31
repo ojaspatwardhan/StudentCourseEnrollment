@@ -34,15 +34,22 @@ export class AdminPageComponent implements OnInit {
 
   findSectionsForCourse(courseId) {
     this.sectionService.findSectionsForCourse(courseId)
-    .then(sections => this.sections = sections);
-    this.findEnrollmentForSection();
+    .then(sections => {
+      this.sections = sections;
+      this.findEnrollmentForSection();
+    });
   }
 
   findEnrollmentForSection() {
     console.log("inside findEnrollmentForSection");
+    console.log(this.sections);
     this.sections.map((section) => {
       console.log("inside map")
-      this.sectionService.findEnrollmentForSection(section._id);
+      this.sectionService.findEnrollmentForSection(section._id).then(enrollment => {
+        console.log(enrollment);
+        this.enrollments = enrollment;
+        console.log(this.enrollments);
+      });
     });
   }
 

@@ -1,10 +1,12 @@
  export class UserServiceClient {
+   heroku_url = "https://student-enrollment-backend.herokuapp.com";
+   local_url = "http://localhost:4000";
    createUser(username, password) {
      const user = {
        username: username,
        password: password
      };
-     return fetch("http://localhost:4000/api/user", {
+     return fetch("https://student-enrollment-backend.herokuapp.com/api/user", {
        body: JSON.stringify(user),
        credentials: "include",
        method: "POST",
@@ -15,17 +17,17 @@
    }
 
    profile() {
-     return fetch("http://localhost:4000/api/profile",{
+     return fetch("https://student-enrollment-backend.herokuapp.com/api/profile",{
        credentials: "include",
      }).then(response => response.json());
    }
 
    findUserById(userId) {
-     return fetch("http://localhost:4000/api/user/" + userId).then(response => response.json());
+     return fetch("https://student-enrollment-backend.herokuapp.com/api/user/" + userId).then(response => response.json());
    }
 
    updateUser(user) {
-     return fetch("http://localhost:4000/api/profile", {
+     return fetch("https://student-enrollment-backend.herokuapp.com/api/profile", {
        method: "PUT",
        credentials: "include",
        body: JSON.stringify(user),
@@ -36,13 +38,13 @@
    }
 
    findAllUsers() {
-     return fetch("http://localhost:4000/api/user", {
+     return fetch("https://student-enrollment-backend.herokuapp.com/api/user", {
        credentials: "include"
      }).then(response => response.json());
    }
 
    logout() {
-     return fetch("http://localhost:4000/api/logout", {
+     return fetch("https://student-enrollment-backend.herokuapp.com/api/logout", {
        method: "POST",
        credentials: "include"
      });
@@ -50,7 +52,7 @@
 
    login(username, password) {
      var credentials = {username, password};
-     return fetch("http://localhost:4000/api/login", {
+     return fetch("https://student-enrollment-backend.herokuapp.com/api/login", {
        method: "POST",
        body: JSON.stringify(credentials),
        credentials: "include",
