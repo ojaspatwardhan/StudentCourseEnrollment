@@ -41,6 +41,7 @@ export class AdminPageComponent implements OnInit {
   findEnrollmentForSection() {
     console.log("inside findEnrollmentForSection");
     this.sections.map((section) => {
+      console.log("inside map")
       this.sectionService.findEnrollmentForSection(section._id);
     });
   }
