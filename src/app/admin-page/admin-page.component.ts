@@ -34,9 +34,13 @@ export class AdminPageComponent implements OnInit {
 
   findSectionsForCourse(courseId) {
     this.sectionService.findSectionsForCourse(courseId)
-    .then(sections => this.sections = sections).then(this.sections.map((section) => {
-      this.sectionService.findEnrollmentForSection(section._id).then(enrollments => console.log(enrollments));
-    }));
+    .then(sections => this.sections = sections).then(findEnrollmentForSection);
+  }
+
+  findEnrollmentForSection() {
+    this.sections.map((section) => {
+      this.sectionService.findEnrollmentForSection(section._id);
+    });
   }
 
   deleteSection(sectionId) {
