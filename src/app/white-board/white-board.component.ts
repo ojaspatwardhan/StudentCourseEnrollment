@@ -3,6 +3,7 @@ import { SectionServiceClient } from '../services/section.service.client';
 import { CourseServiceClient } from '../services/course.service.client';
 import { UserServiceClient } from '../services/user.service.client';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-white-board',
@@ -11,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class WhiteBoardComponent implements OnInit {
 
-  constructor(private userService: UserServiceClient, private service: SectionServiceClient, private courseService: CourseServiceClient, private cookieService: CookieService) { }
+  constructor(private userService: UserServiceClient, private service: SectionServiceClient, private courseService: CourseServiceClient, private cookieService: CookieService, private router: Router) { }
 
   courses = [];
   cookieValue = "";
