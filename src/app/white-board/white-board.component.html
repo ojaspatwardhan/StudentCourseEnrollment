@@ -23,7 +23,7 @@
       <app-course-grid></app-course-grid>
     </div>
   </div>
-  <div class="row" style="margin-top: 2%; margin-left: 2%;" *ngIf = "{cookieValue} == ''; else loggedIn">
+  <div class="row" style="margin-top: 2%; margin-left: 2%;" *ngIf = "cookieValue == ''; else loggedIn">
     <div class="col-md-1">
       <button type="button" class="btn btn-md btn-outline-primary" routerLink="/register">Register</button>
     </div>
