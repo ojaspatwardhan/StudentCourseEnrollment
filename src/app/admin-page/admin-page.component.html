@@ -1,5 +1,13 @@
 <div class="container-fluid">
   <div class="row" style="margin-top: 2%;">
+    <div class="col-md-1 float-right">
+      <button routerLink = "/home" type="button" class="btn btn-md btn-outline-primary">Home</button>
+    </div>
+    <div class="col-md-1 float-right">
+      <button routerLink = "/profile" type="button" class="btn btn-md btn-outline-success">Profile</button>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 2%;">
     <div class="col-12">
       <div class="accordion" id="accordionExample">
         <div class="card" *ngFor = "let course of courses">
