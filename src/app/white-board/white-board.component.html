@@ -36,10 +36,10 @@
   <ng-template #loggedIn>
     <div class="row" style="margin-top: 2%; margin-left: 2%;">
       <div class="col-md-1">
-        <button type="button" class="btn btn-md btn-outline-primary" routerLink="/register">Logout</button>
+        <button type="button" class="btn btn-md btn-outline-primary" (click = "logout()")>Logout</button>
       </div>
       <div class="col-md-3">
-        <button type="button" class="btn btn-md btn-outline-secondary" routerLink="/login">Profile</button>
+        <button type="button" class="btn btn-md btn-outline-secondary" routerLink="/profile">Profile</button>
       </div>
     </div>
   </ng-template>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceClient } from '../services/user.service.client';
 import { SectionServiceClient } from '../services/section.service.client';
+import { CookieService } from 'ngx-cookie-service';
 import { User } from '../models/user.model.client';
 import { Router } from '@angular/router';
 
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProfilePageComponent implements OnInit {
 
-  constructor(private service: UserServiceClient, private sectionService: SectionServiceClient, private router: Router) { }
+  constructor(private service: UserServiceClient, private sectionService: SectionServiceClient, private cookieService: CookieService, private router: Router) { }
 
   user: User = new User();
 
@@ -24,6 +25,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   logout() {
+    cookieService.delete("username");
     this.service.logout().then(() => this.router.navigate(['home']));
   }
 

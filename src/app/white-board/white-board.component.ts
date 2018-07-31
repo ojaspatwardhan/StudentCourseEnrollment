@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SectionServiceClient } from '../services/section.service.client';
 import { CourseServiceClient } from '../services/course.service.client';
+import { UserServiceClient } from '../services/user.service.client';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
@@ -10,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class WhiteBoardComponent implements OnInit {
 
-  constructor(private service: SectionServiceClient, private courseService: CourseServiceClient, private cookieService: CookieService) { }
+  constructor(private userService: UserServiceClient, private service: SectionServiceClient, private courseService: CourseServiceClient, private cookieService: CookieService) { }
 
   courses = [];
   cookieValue = "";
@@ -29,6 +30,11 @@ export class WhiteBoardComponent implements OnInit {
         })
       }
     });
+  }
+
+  logout() {
+    cookieService.delete("username");
+    this.service.logout().then(() => this.router.navigate(['home']));
   }
 
 }
