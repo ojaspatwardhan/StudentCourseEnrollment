@@ -16,6 +16,7 @@ export class AdminPageComponent implements OnInit {
   courses: Course []= [];
 
   sections = [];
+  enrollments = [];
 
   sectionName = "";
   numberOfSeats = "";
@@ -33,7 +34,9 @@ export class AdminPageComponent implements OnInit {
 
   findSectionsForCourse(courseId) {
     this.sectionService.findSectionsForCourse(courseId)
-    .then(sections => this.sections = sections);
+    .then(sections => this.sections = sections).then(sections.map((section) => {
+      this.sectionService.findEnrollmentForSection(section._id).then(enrollments => console.log(enrollments));
+    }));
   }
 
   deleteSection(sectionId) {

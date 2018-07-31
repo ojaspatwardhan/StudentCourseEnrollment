@@ -72,4 +72,8 @@ export class SectionServiceClient {
       })
       .then(response => response.json());
   }
+
+  findEnrollmentForSection(sectionId) {
+    console.log(sectionId);
+  }
 }
