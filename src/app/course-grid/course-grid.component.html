@@ -14,7 +14,9 @@
             <p class="card-text"><b>Modified - {{course.modified}}</b></p>
             <a routerLink="/course/{{course.id}}" class="btn btn-md btn-outline-primary" *ngIf = "course.type == 'public'">Go to Course</a>
             <a routerLink="/course/{{course.id}}/section" class="btn btn-md btn-outline-info" style="margin-left: 3%;">Enroll</a>
-            <small>You must be logged in to Enroll.</small>
+          </div>
+          <div class="card-footer text-muted">
+            <small>You must be logged in to enroll.</small>
           </div>
         </div>
     </div>
