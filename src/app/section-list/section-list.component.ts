@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from '../models/course.model.client';
 import { SectionServiceClient } from '../services/section.service.client';
+import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
 
@@ -16,8 +17,9 @@ export class SectionListComponent implements OnInit {
 
   courseId;
   sections = [];
+  cookieValue = "";
 
-  constructor(private route: ActivatedRoute, private service: SectionServiceClient, private router: Router) {
+  constructor(private route: ActivatedRoute, private service: SectionServiceClient, private cookieService: CookieService, private router: Router) {
     this.route.params.subscribe(params =>  this.course.id = params["courseId"]);
   }
 
@@ -26,6 +28,7 @@ export class SectionListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.cookieValue = this.cookieService.get("username");
     this.route.params.subscribe(params => this.courseId = params["courseId"]);
     this.service.findSectionsForCourse(this.courseId)
     .then(sections => this.sections = sections);
